@@ -34,7 +34,7 @@ def record_microphone(chunk=1024):
         if keyboard.is_pressed('r'):
             sample_format = pyaudio.paInt16  # 16 bits per sample
             channels = 1
-            fs = 88200  # Record at 44100 samples per second
+            fs = 44100  # Record at 44100 samples per second
             filename = "output.wav"
 
             p = pyaudio.PyAudio()  # Create an interface to PortAudio
