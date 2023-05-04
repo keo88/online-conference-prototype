@@ -15,6 +15,8 @@ from langchain.schema import (
 )
 import os
 import webbrowser
+import urllib
+
 os.environ["OPENAI_API_KEY"] = open("./api_key.txt", "r").read().strip()
 
 
@@ -61,7 +63,8 @@ while(True):
         try:
             splitted = last_ai_message.split(' ')
             joined_msg = ' '.join(splitted[1:])[1:-1]
-            webbrowser.open(f'https://www.google.com/search?q={joined_msg}')
+            target_url = f'https://www.google.com/search?q={urllib.parse.quote(joined_msg)}'
+            webbrowser.open(target_url)
         except:
             pass
 
