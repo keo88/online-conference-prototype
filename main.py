@@ -15,9 +15,8 @@ from langchain.schema import (
 )
 import os
 import webbrowser
-<<<<<<< HEAD
 import urllib
-=======
+
 
 import openai
 import pyaudio
@@ -76,7 +75,6 @@ def record_microphone(chunk=1024):
             rf = open('./'+filename, 'rb')
             return rf
         
->>>>>>> yongchan
 
 os.environ["OPENAI_API_KEY"] = open("./api_key.txt", "r").read().strip()
 def read_agent():
@@ -105,7 +103,6 @@ conversation = ConversationChain(memory=memory, prompt=prompt, llm=llm)
 k = memory.load_memory_variables({})
 participants = 2
 current_participant = 0
-        
 
 while(True):
     audio = record_microphone()
@@ -124,14 +121,9 @@ while(True):
     if 'search' in last_ai_message:
         try:
             splitted = last_ai_message.split(' ')
-<<<<<<< HEAD
-            joined_msg = ' '.join(splitted[1:])[1:-1]
+            joined_msg = ' '.join(splitted[1:])[1:-1].strip()
             target_url = f'https://www.google.com/search?q={urllib.parse.quote(joined_msg)}'
             webbrowser.open(target_url)
-=======
-            joined_msg = ' '.join(splitted[1:])[1:-1].strip()
-            webbrowser.open(f'https://www.google.com/search?q={joined_msg}')
->>>>>>> yongchan
         except:
             pass
 
